@@ -12,15 +12,21 @@
 
 <ul>
   <% @person.phone_numbers.each do |phone| %>
-    <li><%= phone.number %> <br>
+    <li>
+      <%= phone.number %><br>
       <%= link_to 'edit', edit_phone_number_path(phone) %><br>
-      <%= link_to 'delete', phone_number_path(phone), method: "delete" %></li>
+      <%= link_to 'delete', phone_number_path(phone), method: "delete" %>
+    </li>
   <% end %>
 </ul>
 
-<ul>
+<ul id="emails-list">
   <% @person.email_addresses.each do |email| %>
-    <li><%= email.address %></li>
+    <li>
+      <%= email.address %><br>
+      <%= link_to 'edit', edit_email_address_path(email) %><br>
+      <%= link_to 'delete', email_address_path(email), method: "delete" %>
+    </li>
   <% end %>
 </ul>
 

@@ -42,7 +42,7 @@ class EmailAddressesController < ApplicationController
   def update
     respond_to do |format|
       if @email_address.update(email_address_params)
-        format.html { redirect_to @email_address, notice: 'Email address was successfully updated.' }
+        format.html { redirect_to @email_address.person, notice: 'Email address was successfully updated.' }
         format.json { render :show, status: :ok, location: @email_address }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class EmailAddressesController < ApplicationController
   def destroy
     @email_address.destroy
     respond_to do |format|
-      format.html { redirect_to email_addresses_url, notice: 'Email address was successfully destroyed.' }
+      format.html { redirect_to @email_address.person, notice: 'Email address was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
