@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
   has_many :phone_numbers, as: :contact
-  has_many :email_addresses
+  has_many :email_addresses, as: :contact
   validates :first_name, :last_name, presence: true
 end
